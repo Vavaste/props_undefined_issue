@@ -3,11 +3,12 @@ import {NextPage} from "next";
 interface ExampleProps {
     age: number;
 }
+
 export const getStaticProps: () => Promise<{ props: ExampleProps }> = async () => {
-    const exampleReturn : ExampleProps ={
+    const exampleReturn: ExampleProps = {
         age: 20
     }
-    return({props:exampleReturn})
+    return ({props: exampleReturn})
 };
 
 export async function getStaticPaths() {
@@ -21,11 +22,9 @@ export const stringifyNumber = (number: number) => {
     return number.toString();
 };
 
-const Home: NextPage<ExampleProps> =({
-                                         age
-                                     }) =>{
+const Home: NextPage<ExampleProps> = ({age}) => {
     console.log(age)
-    return(
+    return (
         <>
             <div>{stringifyNumber(age)}</div>
         </>
